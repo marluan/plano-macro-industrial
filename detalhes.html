@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whitepaper: Plano Macro-Industrial de Crédito Direcionado</title>
+<meta name="description" content="Documento técnico do Plano Macro-Industrial: regras de elegibilidade, base legal da compensação fiscal, cenários de impacto, compromissos sobre juros, riscos e limitações.">
+<meta property="og:title" content="Whitepaper: Plano Macro-Industrial de Crédito Direcionado">
+<meta property="og:description" content="Regras, contas e premissas da proposta de isenção condicionada com compensação integral pela CSLL dos bancos.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#F2F4F1;
+  --branco:#FBFCFA;
+  --tinta:#1F2B27;
+  --tinta-suave:#4A5852;
+  --maquina:#3D6858;
+  --maquina-escura:#2B4D41;
+  --chapa:#C8D0CB;
+  --seguranca:#E9B92C;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--serif);font-size:1.0625rem;line-height:1.72;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+a{color:var(--maquina-escura);text-underline-offset:.18em}
+a:hover{color:var(--tinta)}
+:focus-visible{outline:3px solid var(--seguranca);outline-offset:3px;border-radius:2px}
+.pular{position:absolute;left:-999px;top:0;background:var(--tinta);color:var(--branco);padding:.6rem 1rem;z-index:10;font-family:var(--sans)}
+.pular:focus{left:1rem;top:1rem}
+
+.topo{border-bottom:1px solid var(--chapa);font-family:var(--sans)}
+.topo .faixa{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;flex-wrap:wrap;gap:.75rem 2rem;align-items:center;justify-content:space-between}
+.marca{font-weight:800;font-variation-settings:"wdth" 118;text-decoration:none;color:var(--tinta)}
+.topo .links{display:flex;gap:1.4rem;font-size:.95rem}
+.topo .links a{color:var(--tinta-suave);text-decoration:none}
+.topo .links a:hover{color:var(--tinta);text-decoration:underline}
+.topo button{font:inherit;font-size:.95rem;background:none;border:0;padding:0;color:var(--maquina-escura);font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:.18em}
+
+.layout{max-width:1180px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:240px minmax(0,1fr);gap:4rem}
+.sumario{position:sticky;top:1.5rem;align-self:start;padding-top:3.5rem;font-family:var(--sans);font-size:.92rem;max-height:calc(100vh - 2rem);overflow-y:auto}
+.sumario h2{font-size:1rem;margin:0 0 .75rem;font-weight:700}
+.sumario ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--chapa)}
+.sumario li a{display:block;padding:.3rem 0 .3rem .9rem;color:var(--tinta-suave);text-decoration:none;margin-left:-2px;border-left:2px solid transparent;line-height:1.35}
+.sumario li a:hover{color:var(--tinta);border-left-color:var(--seguranca)}
+
+article{padding:3.5rem 0 5rem;max-width:720px}
+header.doc{border-bottom:2px solid var(--tinta);padding-bottom:2rem;margin-bottom:2.5rem}
+.status{font-family:var(--sans);font-size:.95rem;color:var(--tinta-suave);margin:0 0 1rem}
+h1,h2,h3,h4{font-family:var(--sans);line-height:1.15;margin:0}
+header.doc h1{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:850;font-variation-settings:"wdth" 114;letter-spacing:-.02em;margin-bottom:1rem;max-width:20ch}
+header.doc .lead{font-size:1.2rem;color:var(--tinta-suave);margin:0}
+article section{padding-top:1rem;margin-bottom:3rem;scroll-margin-top:1rem}
+article h2{font-size:1.75rem;font-weight:800;font-variation-settings:"wdth" 110;margin:0 0 1.1rem;padding-top:1.5rem;border-top:6px solid var(--seguranca);display:flex;gap:.7rem;align-items:baseline}
+article h2 .num{color:var(--maquina);font-variation-settings:"wdth" 100}
+article h3{font-size:1.2rem;font-weight:700;margin:2rem 0 .6rem}
+p{margin:0 0 1.1rem}
+ul,ol{padding-left:1.3rem;margin:0 0 1.2rem}
+li{margin-bottom:.45rem}
+.resumo{background:var(--branco);border:2px solid var(--tinta);padding:1.5rem 1.75rem .6rem;margin-bottom:3rem}
+.resumo h2{border:0;padding:0;font-size:1.3rem;margin-bottom:.9rem}
+.caixa{border-left:6px solid var(--seguranca);background:var(--branco);padding:1rem 1.3rem;margin:1.5rem 0}
+.caixa p:last-child{margin:0}
+.formula{font-family:var(--sans);background:var(--branco);border:1px solid var(--chapa);padding:.9rem 1.2rem;margin:1.2rem 0;font-size:1rem}
+.tabela{overflow-x:auto;margin:1.4rem 0 1rem;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.95rem;line-height:1.45}
+caption{text-align:left;font-weight:700;padding-bottom:.6rem;font-size:.95rem}
+th,td{text-align:left;padding:.65rem .9rem .65rem 0;border-bottom:1px solid var(--chapa);vertical-align:top}
+thead th{border-bottom:2px solid var(--tinta);font-weight:700;font-size:.9rem}
+td.n,th.n{text-align:right;white-space:nowrap}
+tr.destaque td{background:rgba(233,185,44,.22);font-weight:700}
+tr.destaque td:first-child{box-shadow:inset 6px 0 0 var(--seguranca);padding-left:.9rem}
+.nota{font-family:var(--sans);font-size:.88rem;color:var(--tinta-suave);line-height:1.55}
+sup a{text-decoration:none;font-family:var(--sans);font-weight:700;font-size:.8em;padding:0 .1em}
+dl.glossario dt{font-family:var(--sans);font-weight:700;margin-top:1rem}
+dl.glossario dd{margin:0}
+ol.refs{padding-left:0;list-style:none;font-family:var(--sans);font-size:.92rem;line-height:1.5}
+ol.refs li{display:grid;grid-template-columns:2.6rem 1fr;gap:.5rem;padding:.7rem 0;border-bottom:1px solid var(--chapa);margin:0}
+ol.refs li:target{background:rgba(233,185,44,.22)}
+ol.refs .id{font-weight:700;color:var(--maquina)}
+ol.refs a{word-break:break-word}
+.licenca img{vertical-align:-4px;margin-left:.3rem}
+.contribua{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:3rem;align-items:start}
+.passos{margin:0;padding-left:1.2rem}.passos li{margin-bottom:.5rem}
+@media (max-width:860px){.contribua{grid-template-columns:minmax(0,1fr);gap:1.5rem}}
+.rodape{border-top:1px solid var(--chapa);font-family:var(--sans);font-size:.9rem;color:var(--tinta-suave)}
+.rodape .faixa{max-width:1180px;margin:0 auto;padding:2rem 1.5rem 3rem}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:0}
+  .sumario{position:static;max-height:none;padding-top:2rem;border-bottom:1px solid var(--chapa);padding-bottom:1.5rem}
+  article{padding-top:2rem}
+}
+@media (max-width:600px){
+  .resumo{padding:1.2rem 1.1rem .4rem}
+  article h2{font-size:1.45rem}
+  .tabela.larga table{min-width:540px}
+}
+@media print{
+  .topo,.sumario,.pular{display:none}
+  .layout{display:block;padding:0}
+  body{background:#fff;font-size:11pt}
+  article{max-width:none;padding:0}
+  article h2{break-after:avoid}
+  .tabela{overflow:visible}
+  a{color:var(--tinta)}
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#documento">Pular para o documento</a>
+
+<header class="topo">
+  <div class="faixa">
+    <a class="marca" href="index.html">Plano Macro-Industrial</a>
+    <div class="links">
+      <a href="index.html">Voltar à página inicial</a>
+      <button type="button" onclick="window.print()">Salvar em PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sumario" aria-label="Sumário">
+    <h2>Sumário</h2>
+    <ol>
+      <li><a href="#resumo">Resumo</a></li>
+      <li><a href="#diagnostico">1. Diagnóstico</a></li>
+      <li><a href="#mecanismo">2. Mecanismo</a></li>
+      <li><a href="#fiscal">3. Impacto fiscal e compensação</a></li>
+      <li><a href="#economia">4. Impacto econômico</a></li>
+      <li><a href="#juros">5. Juros</a></li>
+      <li><a href="#industria">6. Indústria e conteúdo local</a></li>
+      <li><a href="#prudencial">7. Aspectos prudenciais</a></li>
+      <li><a href="#governanca">8. Governança e metas</a></li>
+      <li><a href="#instrumentos">9. Instrumentos existentes</a></li>
+      <li><a href="#limitacoes">10. Limitações e pontos em aberto</a></li>
+      <li><a href="#glossario">Glossário</a></li>
+      <li><a href="#referencias">Referências</a></li>
+    </ol>
+  </nav>
+
+  <article id="documento">
+    <header class="doc">
+      <p class="status">Whitepaper, versão 2, novembro de 2026</p>
+      <h1>Plano Macro-Industrial de Crédito Direcionado</h1>
+      <p class="lead">Regras, base legal e premissas de uma isenção tributária condicionada a crédito produtivo, compensada integralmente dentro do sistema financeiro.</p>
+    </header>
+
+    <section class="resumo" id="resumo">
+      <h2>Resumo</h2>
+      <ul>
+        <li>Bancos que compram títulos federais em leilão primário e emprestam a micro e pequenas indústrias deixam de pagar IRPJ e CSLL sobre a margem desses títulos.</li>
+        <li>A isenção vale só sobre o crescimento do estoque de títulos acima de uma linha de base, exige R$ 3 em crédito ponderado para cada R$ 1 isento, com piso de R$ 1 em crédito efetivo, e obriga o banco a repassar parte do benefício ao tomador.</li>
+        <li>A renúncia tem teto de R$ 10 bi por ano e é compensada pela elevação da CSLL dos bancos de 20% para 24% durante os cinco anos do programa, com trava automática que impede saldo negativo.</li>
+        <li>O efeito econômico é tratado à parte: R$ 43 bi de PIB extra por ano geram receita federal igual ao teto. Essa conta não entra na compensação legal.</li>
+        <li>O programa não interfere na Selic. Ele mede e exige queda do juro ao tomador e do custo de emissão do Tesouro.</li>
+      </ul>
+    </section>
+
+    <section id="diagnostico">
+      <h2><span class="num">1</span> Diagnóstico</h2>
+      <p>Títulos públicos federais rendem a taxa básica, não têm risco de crédito e não consomem capital regulatório. Emprestar a uma pequena indústria exige análise de risco, provisão para perdas e capital. Com juros altos, a tesouraria do banco prefere o Tesouro, e a empresa paga caro ou não consegue crédito.</p>
+      <div class="tabela larga">
+        <table>
+          <caption>Indicadores de referência</caption>
+          <thead><tr><th scope="col">Indicador</th><th scope="col" class="n">Valor</th><th scope="col">Data e fonte</th></tr></thead>
+          <tbody>
+            <tr><td>Dívida mobiliária federal interna (DPMFi)</td><td class="n">R$ 9.037,5 bi</td><td>set/2026, Tesouro <sup><a href="#r1">[1]</a></sup></td></tr>
+            <tr><td>Participação das instituições financeiras na DPMFi</td><td class="n">31,3% (≈ R$ 2,83 tri)</td><td>set/2026, Tesouro <sup><a href="#r1">[1]</a></sup></td></tr>
+            <tr><td>Variação do estoque das instituições financeiras em 12 meses</td><td class="n">+R$ 287 bi</td><td>set/2026, Tesouro <sup><a href="#r1">[1]</a></sup></td></tr>
+            <tr><td>Selic</td><td class="n">13,75% a.a.</td><td>antes do Copom de 4/11/2026 <sup><a href="#r2">[2]</a></sup></td></tr>
+            <tr><td>Juro médio do crédito livre a empresas</td><td class="n">24,4% a.a.</td><td>jun/2026, Banco Central <sup><a href="#r3">[3]</a></sup></td></tr>
+            <tr><td>Dívida bruta do governo geral</td><td class="n">82,9% do PIB</td><td>set/2026, Banco Central <sup><a href="#r4">[4]</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>O objetivo não é tirar os bancos do Tesouro, que precisa se financiar, mas fazer com que parte do ganho com títulos públicos dependa de crédito novo e mais barato à indústria de menor porte.</p>
+    </section>
+
+    <section id="mecanismo">
+      <h2><span class="num">2</span> Mecanismo</h2>
+
+      <h3>2.1 Quem e o que é elegível</h3>
+      <ul>
+        <li>Só títulos comprados em <strong>leilão primário</strong> do Tesouro geram benefício. Compras no mercado secundário não são elegíveis.</li>
+        <li>Conta apenas a <strong>carteira própria</strong> do conglomerado prudencial. Fundos administrados e distribuidoras do grupo ficam de fora, o que impede triangulações internas.</li>
+        <li>O banco pode vender os títulos a qualquer momento. A isenção não acompanha o título: quem compra no secundário não recebe benefício.</li>
+      </ul>
+
+      <h3>2.2 Base da isenção: a margem</h3>
+      <p>A isenção incide sobre a margem dos títulos elegíveis, e não sobre o rendimento bruto. Na prática, o custo médio de captação do conglomerado, alocado proporcionalmente aos títulos isentos, deixa de ser dedutível. Sem essa regra, o banco poderia captar a CDI, deduzir a despesa e aplicar em título isento, gerando prejuízo fiscal artificial para abater de outros lucros.</p>
+
+      <h3>2.3 Linha d'água dinâmica</h3>
+      <p>A isenção cobre apenas o crescimento do estoque <em>total</em> de títulos federais do banco, de qualquer origem, acima de uma linha de base. A linha de base é o estoque médio dos doze meses anteriores ao programa, corrigido anualmente pelo crescimento do ativo total do banco.</p>
+      <div class="formula">Saldo isento = menor valor entre (lotes de origem primária mantidos em carteira) e (estoque total − linha de base)</div>
+      <p>Assim, vender títulos antigos e recomprar o mesmo volume no primário não gera benefício, porque o estoque total não cresce.</p>
+
+      <h3>2.4 Tratamento por lote</h3>
+      <ul>
+        <li>Cada compra em leilão primário forma um lote identificado no sistema Selic, com data e quantidade.</li>
+        <li>Em uma venda, consomem-se primeiro os lotes isentos. O banco não consegue vender os lotes do secundário e manter os isentos enquanto gira a carteira.</li>
+        <li>Operações compromissadas não interrompem a isenção, porque são a principal ferramenta de liquidez dos bancos. A contraparte não recebe benefício.</li>
+      </ul>
+
+      <h3>2.5 Contrapartida de crédito</h3>
+      <p>O banco precisa manter crédito ponderado igual a <strong>3 vezes o saldo médio isento</strong> no período, calculado pro rata. Os pesos privilegiam o investimento industrial de menor porte:</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th scope="col">Destino do crédito</th><th scope="col" class="n">Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Cheque especial e cartão de crédito</td><td class="n">0,5×</td></tr>
+            <tr><td>Imobiliário e veículos</td><td class="n">1,0×</td></tr>
+            <tr><td>Investimento de médias e grandes indústrias</td><td class="n">2,5×</td></tr>
+            <tr class="destaque"><td>Micro e pequenas indústrias</td><td class="n">5,0×</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>Piso de crédito efetivo:</strong> o saldo de crédito real, sem ponderação, nunca pode ser menor que o saldo isento. Sem o piso, R$ 60 em crédito a MPEs bastariam para cumprir uma exigência de R$ 300.</li>
+        <li><strong>Adicionalidade:</strong> conta apenas o crescimento da carteira acima da linha de base do próprio banco, medido no Sistema de Informações de Crédito (SCR) do Banco Central. Refinanciamento e renegociação não contam.</li>
+        <li><strong>Garantia:</strong> as operações com MPEs podem ter garantia parcial do FGI. O banco mantém parte do risco.</li>
+      </ul>
+
+      <h3>2.6 Repasse obrigatório ao tomador</h3>
+      <p>Uma operação só entra na meta se a taxa cobrada ficar abaixo da média de mercado da mesma modalidade e porte, publicada pelo Banco Central. O desconto mínimo é metade do benefício fiscal por real emprestado:</p>
+      <div class="formula">Desconto mínimo (p.p.) = 50% × benefício fiscal do banco no ano ÷ saldo médio de crédito efetivo do programa</div>
+      <p>Com o teto cheio e sem ponderação, o benefício equivale a cerca de 1,9% ao ano do crédito, e o desconto mínimo fica perto de 1 ponto percentual. Se todo o crédito for a MPEs com peso 5×, o benefício por real emprestado chega a cerca de 9,4% e o desconto mínimo passa de 4 pontos.</p>
+
+      <h3>2.7 Teto e rateio</h3>
+      <p>A soma das isenções tem teto de R$ 10 bi por ano. Se os pedidos superarem o teto, o benefício é rateado proporcionalmente ao saldo isento apurado de cada banco.</p>
+    </section>
+
+    <section id="fiscal">
+      <h2><span class="num">3</span> Impacto fiscal e compensação</h2>
+
+      <h3>3.1 O que a lei exige</h3>
+      <ul>
+        <li>O art. 14 da Lei de Responsabilidade Fiscal exige estimativa de impacto e medidas de compensação no ano de vigência e nos dois seguintes, por elevação de alíquota, ampliação de base de cálculo, majoração ou criação de tributo <sup><a href="#r6">[6]</a></sup>.</li>
+        <li>A LC 224/2025 fixou teto global de 2% do PIB para benefícios tributários e veda criar ou ampliar benefícios acima dele <sup><a href="#r7">[7]</a></sup>. Os gastos tributários da União previstos para 2026 somam R$ 612,8 bi, ou 4,43% do PIB <sup><a href="#r8">[8]</a></sup>. A vedação não se aplica a projetos com compensação durante toda a vigência do incentivo <sup><a href="#r19">[19]</a></sup>.</li>
+        <li>Novos benefícios a pessoas jurídicas precisam trazer estimativa do número de beneficiários, vigência de até cinco anos e metas objetivas e quantificáveis <sup><a href="#r20">[20]</a></sup>.</li>
+      </ul>
+
+      <h3>3.2 Por que o teto é indispensável</h3>
+      <p>Sem limite, a isenção se acumula sobre o estoque a cada ano. Cenário: R$ 100 bi por ano de compras acima da linha de base, juro de 12,5% e alíquota de 45%, calculado sobre o rendimento bruto como limite superior.</p>
+      <div class="tabela larga">
+        <table>
+          <thead><tr><th scope="col">Ano</th><th scope="col" class="n">Saldo isento</th><th scope="col" class="n">Renúncia</th><th scope="col" class="n">CSLL extra necessária</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="n">R$ 100 bi</td><td class="n">R$ 5,6 bi</td><td class="n">+2,2 p.p.</td></tr>
+            <tr><td>3</td><td class="n">R$ 300 bi</td><td class="n">R$ 16,9 bi</td><td class="n">+6,6 p.p.</td></tr>
+            <tr><td>5</td><td class="n">R$ 500 bi</td><td class="n">R$ 28,1 bi</td><td class="n">+11,0 p.p.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Em cinco anos seriam R$ 84 bi, e a CSLL dos bancos teria de chegar a 31%. A proposta fixa o teto para que a compensação seja viável.</p>
+
+      <h3>3.3 A compensação</h3>
+      <p>A CSLL dos bancos, hoje em 20% <sup><a href="#r9">[9]</a></sup>, sobe para 24% durante os cinco anos do programa. Todos os bancos pagam a alíquota maior; os que cumprem a meta recebem a isenção. O incentivo é a diferença entre cumprir e não cumprir.</p>
+      <div class="tabela larga">
+        <table>
+          <caption>Teto e CSLL necessária</caption>
+          <thead><tr><th scope="col">Teto anual</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">Arrecadação extra</th><th scope="col" class="n">Saldo isento coberto*</th></tr></thead>
+          <tbody>
+            <tr><td>R$ 5 bi</td><td class="n">22%</td><td class="n">R$ 5,1 bi</td><td class="n">R$ 89 bi</td></tr>
+            <tr class="destaque"><td>R$ 10 bi (proposto)</td><td class="n">24%</td><td class="n">R$ 10,2 bi</td><td class="n">R$ 178 bi</td></tr>
+            <tr><td>R$ 15 bi</td><td class="n">26%</td><td class="n">R$ 15,3 bi</td><td class="n">R$ 267 bi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Arrecadação estimada sobre o lucro líquido de R$ 255 bi do sistema bancário em 2025 <sup><a href="#r5">[5]</a></sup>. A base tributável da CSLL é maior que o lucro líquido, então a estimativa é conservadora; o número final deve vir da Receita Federal. *Saldo calculado com isenção sobre o rendimento bruto a 12,5%; com isenção sobre a margem, o mesmo teto cobre um saldo maior.</p>
+      <p>Mudar a CSLL do setor financeiro já é prática corrente: a própria LC 224/2025 reorganizou as alíquotas por tipo de instituição <sup><a href="#r9">[9]</a></sup>.</p>
+
+      <h3>3.4 Trava automática</h3>
+      <div class="caixa">
+        <p>Se, em um ano, a arrecadação adicional da CSLL ficar abaixo da renúncia apurada pela Receita, o teto do ano seguinte é reduzido na mesma proporção. O programa não pode gerar saldo fiscal negativo acumulado.</p>
+      </div>
+
+      <h3>3.5 O que não entra na conta</h3>
+      <ul>
+        <li><strong>IOF:</strong> a versão anterior contava com IOF sobre o crédito novo. O crédito com recursos da FINAME e o financiamento de bens de capital têm alíquota zero <sup><a href="#r10">[10]</a></sup>, a parte diária do IOF é limitada a 365 dias por operação <sup><a href="#r11">[11]</a></sup> e receita induzida por comportamento não é aceita como compensação pela LRF.</li>
+        <li><strong>Economia de juros:</strong> a queda do custo de emissão reduz a despesa com juros, mas juros não entram no resultado primário nem valem como compensação legal. Ela aparece na seção 5 como benefício adicional.</li>
+        <li><strong>Aportes ao FGI:</strong> são despesa, não renúncia, e precisam de dotação própria no orçamento.</li>
+      </ul>
+    </section>
+
+    <section id="economia">
+      <h2><span class="num">4</span> Impacto econômico</h2>
+      <p>Esta seção estima o efeito do programa sobre o PIB e a dívida. Ela não faz parte da compensação fiscal, que já está fechada na seção 3.</p>
+      <p>Há evidência de que crédito ao investimento tem efeito positivo e significativo sobre o investimento de micro, pequenas e médias empresas, enquanto o efeito sobre grandes empresas é pequeno, porque elas têm outras fontes de financiamento <sup><a href="#r16">[16]</a></sup>. Isso sustenta o peso maior das MPEs na meta.</p>
+      <div class="tabela larga">
+        <table>
+          <caption>Cenários anuais (PIB de R$ 13,4 tri; dívida bruta de 82,9% do PIB)</caption>
+          <thead><tr><th scope="col">Investimento adicional</th><th scope="col" class="n">Multiplicador</th><th scope="col" class="n">PIB</th><th scope="col" class="n">Dívida/PIB</th><th scope="col" class="n">Receita federal</th></tr></thead>
+          <tbody>
+            <tr><td>R$ 50 bi</td><td class="n">1,0</td><td class="n">+0,37%</td><td class="n">−0,31 p.p.</td><td class="n">+R$ 11,5 bi</td></tr>
+            <tr><td>R$ 50 bi</td><td class="n">1,69</td><td class="n">+0,63%</td><td class="n">−0,52 p.p.</td><td class="n">+R$ 19,5 bi</td></tr>
+            <tr><td>R$ 100 bi</td><td class="n">1,0</td><td class="n">+0,75%</td><td class="n">−0,61 p.p.</td><td class="n">+R$ 23,0 bi</td></tr>
+            <tr><td>R$ 100 bi</td><td class="n">1,69</td><td class="n">+1,26%</td><td class="n">−1,03 p.p.</td><td class="n">+R$ 38,9 bi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">PIB implícito na dívida bruta de R$ 11,1 tri <sup><a href="#r4">[4]</a></sup>. Multiplicador 1,0 é a hipótese conservadora; 1,69 é a estimativa de um estudo com dados das contas nacionais <sup><a href="#r17">[17]</a></sup>. Receita federal estimada em 23% do PIB adicional.</p>
+      <div class="caixa">
+        <p><strong>Ponto de equilíbrio econômico:</strong> R$ 43 bi de PIB adicional por ano (0,32% do PIB) geram receita federal igual ao teto de R$ 10 bi.</p>
+      </div>
+      <h3>Ressalvas</h3>
+      <ul>
+        <li>Só conta o investimento que não aconteceria sem o programa. A medição de adicionalidade (seção 2.5) é o que dá validade a estes números.</li>
+        <li>Se a economia estiver operando perto da capacidade, o Copom pode reagir com juros mais altos e anular parte do efeito.</li>
+        <li>O efeito sobre o PIB é de nível e depende de o investimento elevar a capacidade produtiva, não só a demanda no curto prazo.</li>
+      </ul>
+    </section>
+
+    <section id="juros">
+      <h2><span class="num">5</span> Juros</h2>
+      <p>A Selic é decidida pelo Copom. Por lei, o Banco Central tem como objetivo fundamental assegurar a estabilidade de preços <sup><a href="#r12">[12]</a></sup>. Uma lei que obrigasse cortes seria lida como interferência política e tenderia a elevar os juros longos. O programa, portanto, não promete queda da Selic.</p>
+      <p>Ele se compromete com os juros que estão ao seu alcance:</p>
+      <ol>
+        <li><strong>Juro ao tomador:</strong> o desconto mínimo da seção 2.6 garante que parte do benefício chegue à empresa.</li>
+        <li><strong>Custo da dívida:</strong> como só o leilão primário gera benefício, os dealers tendem a disputar os títulos com taxas menores. O Tesouro publica, a cada leilão, a diferença entre a taxa de emissão e a taxa do mercado secundário no mesmo dia.</li>
+        <li><strong>Gatilho:</strong> se em dois anos a taxa média às MPEs participantes e o custo de emissão não caírem em relação às referências, o teto é reduzido ou o programa é encerrado antes do prazo.</li>
+      </ol>
+      <p>Uma trajetória fiscal melhor ajuda a política monetária, mas a decisão sobre a Selic continua com o Banco Central.</p>
+    </section>
+
+    <section id="industria">
+      <h2><span class="num">6</span> Indústria e conteúdo local</h2>
+      <p>A versão anterior condicionava o multiplicador máximo à compra de máquinas nacionais. Esse desenho foi retirado. A OMC condenou o Brasil, no caso DS472, por benefícios fiscais condicionados a conteúdo local, entre eles o Inovar-Auto <sup><a href="#r13">[13]</a></sup>. Um multiplicador fiscal que dependa da origem da máquina repetiria o problema.</p>
+      <ul>
+        <li>O benefício fiscal independe da origem dos bens financiados.</li>
+        <li>A preferência por bens nacionais continua nas linhas próprias do BNDES/FINAME, que exigem índice de nacionalização para credenciar máquinas <sup><a href="#r18">[18]</a></sup>. Essas linhas são crédito, não isenção.</li>
+        <li>Divisão de papéis: o BNDES financia a oferta (fabricantes), e os bancos privados financiam a demanda (MPEs compradoras).</li>
+      </ul>
+      <h3>Medida complementar: certificação técnica</h3>
+      <p>Fora do mecanismo fiscal, propõe-se que o INMETRO certifique a equivalência técnica de peças e máquinas de projeto aberto ou com patente expirada, reduzindo o custo de entrada de pequenos fabricantes. A versão anterior se referia a "genéricos industriais" com base na Lei 9.787/1999, que trata de medicamentos; essa analogia foi retirada.</p>
+    </section>
+
+    <section id="prudencial">
+      <h2><span class="num">7</span> Aspectos prudenciais</h2>
+      <ul>
+        <li><strong>Capital:</strong> títulos federais têm ponderação zero para risco de crédito na regulação de capital (Resolução CMN nº 4.958/2021). Eles continuam sujeitos a risco de mercado e de taxa de juros na carteira bancária.</li>
+        <li><strong>Exposição soberana:</strong> o teto limita o saldo isento a cerca de R$ 178 bi, perto de 6% do estoque que as instituições financeiras já carregam <sup><a href="#r1">[1]</a></sup>.</li>
+        <li><strong>Liquidez:</strong> o banco pode vender e usar os títulos em compromissadas, então o programa não reduz a liquidez do sistema. O efeito colateral é que os bancos tendem a manter esses títulos até o vencimento.</li>
+        <li><strong>Risco de crédito:</strong> a garantia do FGI é parcial e o banco mantém parte da perda, o que preserva o incentivo a analisar bem o tomador.</li>
+      </ul>
+    </section>
+
+    <section id="governanca">
+      <h2><span class="num">8</span> Governança e metas</h2>
+      <p>Para atender à LC 224/2025, o projeto de lei deve trazer:</p>
+      <ul>
+        <li><strong>Vigência:</strong> cinco anos, com avaliação anual pública e gatilho de revisão no segundo ano.</li>
+        <li><strong>Beneficiários estimados:</strong> os dealers do Tesouro, cerca de uma dúzia de instituições <sup><a href="#r15">[15]</a></sup>, e as micro e pequenas indústrias tomadoras.</li>
+        <li><strong>Órgão gestor:</strong> Ministério da Fazenda, com dados da Receita (renúncia apurada), do Tesouro (lotes e taxas de leilão) e do Banco Central (SCR e taxas médias).</li>
+        <li><strong>Metas:</strong>
+          <ol>
+            <li>crédito adicional a micro e pequenas indústrias acima da linha de base;</li>
+            <li>queda da taxa média dessas operações em relação à média de mercado;</li>
+            <li>diferença entre a taxa de emissão e a do mercado secundário nos leilões;</li>
+            <li>saldo fiscal acumulado (CSLL adicional menos renúncia) maior ou igual a zero.</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+    <section id="instrumentos">
+      <h2><span class="num">9</span> Instrumentos existentes</h2>
+      <div class="tabela">
+        <table>
+          <thead><tr><th scope="col">Instrumento</th><th scope="col">O que faz</th><th scope="col">Relação com o plano</th></tr></thead>
+          <tbody>
+            <tr><td>LCD (Lei 14.937/2024)</td><td>Título com isenção de IR para pessoa física, emitido por bancos de desenvolvimento, até R$ 10 bi por ano por emissor <sup><a href="#r14">[14]</a></sup></td><td>Barateia o funding dos bancos de desenvolvimento. O plano atua na tesouraria dos bancos privados.</td></tr>
+            <tr><td>BNDES FINAME</td><td>Financia máquinas credenciadas com índice de nacionalização <sup><a href="#r18">[18]</a></sup></td><td>Segue financiando a oferta; o plano financia a demanda.</td></tr>
+            <tr><td>FGI</td><td>Fundo garantidor do BNDES para pequenas e médias empresas</td><td>Garantia parcial das operações do programa.</td></tr>
+            <tr><td>Pronampe</td><td>Crédito a micro e pequenas empresas com garantia do FGO</td><td>Depende de dotação orçamentária; o plano usa incentivo tributário compensado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="limitacoes">
+      <h2><span class="num">10</span> Limitações e pontos em aberto</h2>
+      <ul>
+        <li><strong>Acesso restrito aos dealers.</strong> Só eles compram em leilão primário. Cooperativas de crédito e bancos menores, que têm peso grande no crédito a pequenas empresas, ficam de fora no desenho atual.</li>
+        <li><strong>Base da CSLL.</strong> A alíquota de 24% foi estimada sobre o lucro líquido. O cálculo definitivo depende da base tributável informada pela Receita.</li>
+        <li><strong>Definição técnica da margem.</strong> O método de alocação do custo de captação aos títulos isentos precisa de regulamentação conjunta da Receita e do Banco Central.</li>
+        <li><strong>Medição de adicionalidade.</strong> A linha de base de crédito por banco é a parte mais sensível do desenho e deve ser auditável.</li>
+        <li><strong>Alternativa de compensação.</strong> Limitar a dedução de juros sobre capital próprio das instituições financeiras é uma opção de ampliação de base ainda não dimensionada.</li>
+      </ul>
+      <div class="caixa">
+        <p>Contribuições para qualquer um desses pontos são bem-vindas. Faça um fork do <a href="https://github.com/marluan/plano-macro-industrial">repositório no GitHub</a> e abra um pull request para a branch <code>main</code>, citando a fonte de cada número novo com link e data.</p>
+      </div>
+    </section>
+
+    <section id="glossario">
+      <h2>Glossário</h2>
+      <dl class="glossario">
+        <dt>Adicionalidade</dt><dd>Crédito que só existe por causa do programa, medido como crescimento acima da tendência do próprio banco.</dd>
+        <dt>Compromissada</dt><dd>Venda de título com compromisso de recompra; usada pelos bancos para gerir liquidez.</dd>
+        <dt>Crowding out</dt><dd>Quando a dívida pública absorve recursos que iriam para o setor privado.</dd>
+        <dt>Dealer</dt><dd>Instituição credenciada pelo Tesouro e pelo Banco Central para atuar nos leilões de títulos públicos.</dd>
+        <dt>FGI</dt><dd>Fundo Garantidor para Investimentos, administrado pelo BNDES.</dd>
+        <dt>Leilão primário</dt><dd>Venda de títulos feita diretamente pelo Tesouro; o mercado secundário é a revenda entre investidores.</dd>
+        <dt>Linha de base</dt><dd>Nível de referência do estoque de títulos ou de crédito de cada banco, acima do qual o programa passa a contar.</dd>
+        <dt>Margem</dt><dd>Rendimento do título menos o custo de captação alocado a ele.</dd>
+        <dt>SCR</dt><dd>Sistema de Informações de Crédito do Banco Central, que registra as operações de crédito por tomador.</dd>
+      </dl>
+    </section>
+
+    <section id="referencias">
+      <h2>Referências</h2>
+      <ol class="refs">
+        <li id="r1"><span class="id">[1]</span><span>Tesouro Nacional. Relatório Mensal da Dívida, setembro de 2026. <a href="https://static.poder360.com.br/uploads/2026/10/Apresentacao-RMD-Setembro-2026.pdf">Apresentação (PDF)</a></span></li>
+        <li id="r2"><span class="id">[2]</span><span>Selic de 13,75% e calendário do Copom 2026. <a href="https://rankia.com.br/proxima-reuniao-copom/">Rankia</a></span></li>
+        <li id="r3"><span class="id">[3]</span><span>Banco Central, Estatísticas Monetárias e de Crédito, junho de 2026. <a href="https://www.dgabc.com.br/Noticia/4338228/juro-medio-no-credito-livre-sobe-a-49-8-em-junho-de-49-3-em-maio-afirma-bc">DGABC</a></span></li>
+        <li id="r4"><span class="id">[4]</span><span>Banco Central, Estatísticas Fiscais, setembro de 2026. <a href="https://brasil61.com/n/divida-publica-chega-a-82-9-do-pib-e-soma-r-11-1-trilhoes-bras2617409">Brasil 61</a></span></li>
+        <li id="r5"><span class="id">[5]</span><span>Banco Central, lucro do sistema bancário em 2025. <a href="https://revistaoeste.com/economia/lucro-dos-bancos-bate-recorde-de-r-255-bilhoes-em-2025/">Revista Oeste</a></span></li>
+        <li id="r6"><span class="id">[6]</span><span>Lei Complementar nº 101/2000 (LRF), art. 14. <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm">Planalto</a></span></li>
+        <li id="r7"><span class="id">[7]</span><span>Lei Complementar nº 224/2025. <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm">Planalto</a></span></li>
+        <li id="r8"><span class="id">[8]</span><span>PLOA 2026, gastos tributários. <a href="https://monitormercantil.com.br/governo-e-mercado-divergem-em-numeros-da-economia-aponta-nota-tecnica/">Monitor Mercantil</a></span></li>
+        <li id="r9"><span class="id">[9]</span><span>Instrução Normativa RFB nº 2.315/2026, alíquotas da CSLL. <a href="https://www.reformatributaria.com/economia-reforma-tributaria-impactos/receita-federal-redefine-aliquotas-da-csll-para-instituicoes-financeiras/">Reforma Tributária</a></span></li>
+        <li id="r10"><span class="id">[10]</span><span>Decreto nº 6.306/2007 (Regulamento do IOF), art. 8º. <a href="https://www.legjur.com/legislacao/art/dec_00063062007-8">LegJur</a></span></li>
+        <li id="r11"><span class="id">[11]</span><span>Decretos nº 12.466 e 12.499/2025, IOF-Crédito. <a href="https://blog.econeteditora.com.br/?p=26417">Econet</a></span></li>
+        <li id="r12"><span class="id">[12]</span><span>Lei Complementar nº 179/2021, autonomia do Banco Central. <a href="https://planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm">Planalto</a></span></li>
+        <li id="r13"><span class="id">[13]</span><span>OMC, DS472: Brazil, Certain Measures Concerning Taxation and Charges. <a href="https://www.wto.org/ENGLISH/tratop_e/dispu_e/cases_e/ds472_e.htm">WTO</a></span></li>
+        <li id="r14"><span class="id">[14]</span><span>Lei nº 14.937/2024, Letra de Crédito do Desenvolvimento. <a href="https://planalto.gov.br/ccivil_03/_Ato2023-2026/2024/Lei/L14937.htm">Planalto</a></span></li>
+        <li id="r15"><span class="id">[15]</span><span>Sistema de dealers do Tesouro Nacional. <a href="https://portal.tcu.gov.br/imprensa/noticias/tesouro-nacional-aplica-com-regularidade-normas-relacionadas-ao-sistema-de-dealer">TCU</a> e <a href="https://www.topinvest.com.br/blog/dealers-do-tesouro-nacional">Top Invest</a></span></li>
+        <li id="r16"><span class="id">[16]</span><span>Estudo sobre a atuação do BNDES e o investimento, com revisão da literatura sobre MPMEs. <a href="https://core.ac.uk/download/335071752.pdf">CORE (PDF)</a></span></li>
+        <li id="r17"><span class="id">[17]</span><span>Estudo com cálculo do multiplicador do investimento para o Brasil. <a href="https://repositorio.ufc.br/ri/handle/riufc/36479?mode=full">Repositório UFC</a></span></li>
+        <li id="r18"><span class="id">[18]</span><span>BNDES, credenciamento de máquinas e equipamentos (Código FINAME). <a href="https://www.bndes.gov.br/SiteBNDES/bndes/bndes_pt/Ferramentas_e_Normas/Credenciamento_de_Equipamentos/">BNDES</a></span></li>
+        <li id="r19"><span class="id">[19]</span><span>EY, Série Reforma Tributária, edição 12 (LC 224/2025). <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/pt-br/campaigns/reforma-tributaria/documents/ey-serie-reforma-tributaria-edicao-12.pdf">EY (PDF)</a></span></li>
+        <li id="r20"><span class="id">[20]</span><span>TCE-SE, artigo sobre a LC 224/2025 e os requisitos para novos benefícios. <a href="https://www.tce.se.gov.br/portalecojan/Artigos/Artigo%20-%20LC%20224-2025%20-%20Beneficios%20Tributarios,%20Financeiros%20e%20Crediticios.pdf">TCE-SE (PDF)</a></span></li>
+      </ol>
+    </section>
+  </article>
+</div>
+
+<footer class="rodape">
+  <div class="faixa">
+    <p>Plano Macro-Industrial de Crédito Direcionado. Whitepaper, versão 2, novembro de 2026. <a href="https://github.com/marluan/plano-macro-industrial">Repositório e histórico de versões</a>.</p>
+    <p class="licenca"><a href="https://github.com/marluan">marluan</a> é o autor desta proposta. O conteúdo está sob a licença <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" width="20" height="20"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" width="20" height="20">: qualquer pessoa pode copiar, adaptar e redistribuir, desde que mantenha o crédito ao autor, indique a licença e informe o que foi alterado.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Macro-Industrial: crédito para a pequena indústria com saldo fiscal neutro</title>
+<meta name="description" content="Proposta de política pública: bancos que emprestam a micro e pequenas indústrias recebem isenção condicionada sobre títulos comprados em leilão primário. Teto de R$ 10 bi por ano, compensado integralmente pela CSLL dos bancos.">
+<meta property="og:title" content="Plano Macro-Industrial de Crédito Direcionado">
+<meta property="og:description" content="Crédito para a pequena indústria, pago pelo próprio sistema financeiro. Teto de R$ 10 bi/ano com compensação integral e trava automática.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#F2F4F1;
+  --branco:#FBFCFA;
+  --tinta:#1F2B27;
+  --tinta-suave:#4A5852;
+  --maquina:#3D6858;
+  --maquina-escura:#2B4D41;
+  --chapa:#C8D0CB;
+  --seguranca:#E9B92C;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --medida:68ch;
+  --largo:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+a{color:var(--maquina-escura);text-underline-offset:.18em}
+a:hover{color:var(--tinta)}
+:focus-visible{outline:3px solid var(--seguranca);outline-offset:3px;border-radius:2px}
+.pular{position:absolute;left:-999px;top:0;background:var(--tinta);color:var(--branco);padding:.6rem 1rem;z-index:10}
+.pular:focus{left:1rem;top:1rem}
+.faixa{max-width:var(--largo);margin:0 auto;padding:0 1.5rem}
+p{margin:0 0 1rem;max-width:var(--medida)}
+h1,h2,h3{font-family:var(--sans);margin:0;line-height:1.1}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-variation-settings:"wdth" 112;font-weight:800;letter-spacing:-.01em;margin-bottom:1.25rem;max-width:22ch}
+h3{font-size:1.15rem;font-weight:700;margin-bottom:.4rem}
+
+/* navegação */
+.topo{border-bottom:1px solid var(--chapa);background:var(--papel)}
+.topo .faixa{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem;padding-top:1rem;padding-bottom:1rem}
+.marca{font-weight:800;font-variation-settings:"wdth" 118;text-decoration:none;color:var(--tinta);font-size:1.05rem}
+.topo nav{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;font-size:.95rem}
+.topo nav a{text-decoration:none;color:var(--tinta-suave)}
+.topo nav a:hover{color:var(--tinta);text-decoration:underline}
+.topo nav a.wp{color:var(--maquina-escura);font-weight:700}
+
+/* hero */
+.hero{padding:3.5rem 0 4rem}
+.status{font-size:.95rem;color:var(--tinta-suave);margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.3rem,6vw,4.6rem);font-weight:850;font-variation-settings:"wdth" 116;letter-spacing:-.025em;line-height:.98;max-width:17ch;margin-bottom:1.5rem}
+.hero .lead{font-size:clamp(1.1rem,1.8vw,1.3rem);max-width:58ch;color:var(--tinta);margin-bottom:2.5rem}
+
+/* o balanço: elemento central */
+.balanco{background:var(--branco);border:2px solid var(--tinta);max-width:980px}
+.balanco .lados{display:grid;grid-template-columns:1fr 1fr}
+.lado{padding:1.6rem 1.75rem 1.5rem}
+.lado+.lado{border-left:2px solid var(--tinta)}
+.lado .rotulo{font-size:1rem;color:var(--tinta-suave);margin:0 0 .35rem}
+.lado .valor{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:850;font-variation-settings:"wdth" 108;letter-spacing:-.02em;line-height:1;margin:0 0 .9rem;white-space:nowrap}
+.lado .valor small{font-size:.42em;font-weight:600;letter-spacing:0;font-variation-settings:"wdth" 100;color:var(--tinta-suave)}
+.lado.entra .valor{color:var(--maquina-escura)}
+.lado p:last-child{margin:0;font-size:.98rem;color:var(--tinta-suave)}
+.fiel{background:repeating-linear-gradient(-45deg,var(--seguranca) 0 14px,var(--tinta) 14px 28px);height:12px}
+.trava{display:flex;gap:1rem;align-items:baseline;padding:1rem 1.75rem 1.2rem;border-top:2px solid var(--tinta);font-size:.98rem}
+.trava strong{white-space:nowrap}
+.trava p{margin:0;max-width:none}
+.acoes{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.botao{display:inline-block;padding:.85rem 1.4rem;font-weight:700;text-decoration:none;border:2px solid var(--tinta);color:var(--tinta);background:transparent}
+.botao.principal{background:var(--tinta);color:var(--branco)}
+.botao.principal:hover{background:var(--maquina-escura);border-color:var(--maquina-escura);color:var(--branco)}
+.botao:not(.principal):hover{background:var(--branco)}
+
+/* seções */
+.secao{padding:4.5rem 0;border-top:1px solid var(--chapa)}
+.secao.escura{background:var(--maquina-escura);color:var(--branco);border-top:0}
+.secao.escura a{color:#F6D77A}
+.secao.escura .nota{color:#C9D9D2}
+.intro{font-size:1.15rem}
+.nota{font-size:.9rem;color:var(--tinta-suave)}
+.nota a{color:inherit}
+
+/* dados do problema */
+.dados{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin:2.25rem 0 1.5rem;border-top:2px solid var(--tinta)}
+.dado{padding:1.1rem 1.25rem 1.2rem 0;border-bottom:1px solid var(--chapa)}
+.dado dt{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:850;font-variation-settings:"wdth" 106;line-height:1.05;margin-bottom:.35rem}
+.dado dd{margin:0;font-size:.97rem;color:var(--tinta-suave);max-width:30ch}
+
+/* circuito */
+.circuito{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:passo}
+.circuito li{position:relative;padding:1.25rem 1.5rem 1.4rem 0;border-top:6px solid var(--seguranca);counter-increment:passo}
+.circuito li::before{content:counter(passo);display:block;font-weight:850;font-size:1rem;margin:0 0 .6rem;color:#F6D77A}
+.circuito li:not(:last-child)::after{content:"";position:absolute;top:-14px;right:10px;width:0;height:0;border-left:11px solid var(--seguranca);border-top:11px solid transparent;border-bottom:11px solid transparent}
+.circuito h3{color:var(--branco)}
+.circuito p{font-size:.97rem;color:#DCE7E2;margin:0}
+
+/* regras */
+.duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem}
+.regras{margin:0;padding:0;list-style:none}
+.regras li{padding:.85rem 0;border-bottom:1px solid var(--chapa)}
+.regras li:first-child{border-top:2px solid var(--tinta)}
+.regras strong{display:block}
+
+/* tabelas */
+.tabela{overflow-x:auto;margin:1.5rem 0 1rem;max-width:760px}
+table{border-collapse:collapse;width:100%;font-size:.98rem}
+caption{text-align:left;font-weight:700;padding-bottom:.6rem}
+th,td{text-align:left;padding:.7rem .9rem .7rem 0;border-bottom:1px solid var(--chapa);vertical-align:top}
+thead th{border-bottom:2px solid var(--tinta);font-weight:700;font-size:.92rem}
+td.n,th.n{text-align:right;white-space:nowrap}
+tr.destaque td{background:rgba(233,185,44,.22);font-weight:700}
+tr.destaque td:first-child{box-shadow:inset 6px 0 0 var(--seguranca);padding-left:.9rem}
+
+/* compromissos */
+.compromissos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.compromissos div{border-top:2px solid var(--tinta);padding-top:1rem}
+.compromissos p{font-size:.98rem}
+.aviso{border-left:6px solid var(--seguranca);padding:.9rem 1.2rem;background:var(--branco);margin-top:2rem;max-width:760px}
+.aviso p{margin:0}
+
+/* riscos */
+details{border-bottom:1px solid var(--chapa);max-width:820px}
+details:first-of-type{border-top:2px solid var(--tinta)}
+summary{cursor:pointer;padding:1rem 2rem 1rem 0;font-weight:700;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:.25rem;top:.8rem;font-size:1.4rem;font-weight:400;line-height:1}
+details[open] summary::after{content:"−"}
+details p{padding-bottom:.5rem}
+
+.licenca img{vertical-align:-4px;margin-left:.3rem}
+.contribua{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:3rem;align-items:start}
+.passos{margin:0;padding-left:1.2rem}.passos li{margin-bottom:.5rem}
+@media (max-width:860px){.contribua{grid-template-columns:minmax(0,1fr);gap:1.5rem}}
+/* final */
+.final h2{max-width:none}
+.rodape{padding:2rem 0 3rem;font-size:.9rem;color:var(--tinta-suave);border-top:1px solid var(--chapa)}
+.rodape p{max-width:none}
+
+@media (max-width:860px){
+  .circuito{grid-template-columns:1fr 1fr;row-gap:2rem}
+  .circuito li:nth-child(2)::after{display:none}
+  .duas,.compromissos{grid-template-columns:minmax(0,1fr);gap:2rem}
+}
+@media (max-width:600px){
+  .hero{padding-top:2.25rem}
+  .balanco .lados{grid-template-columns:1fr}
+  .lado+.lado{border-left:0;border-top:2px solid var(--tinta)}
+  .lado,.trava{padding-left:1.15rem;padding-right:1.15rem}
+  .trava{flex-direction:column;gap:.25rem}
+  .circuito{grid-template-columns:1fr}
+  .circuito li::after{display:none}
+  .secao{padding:3.25rem 0}
+  .tabela.larga table{min-width:520px}
+}
+@media print{
+  .topo nav,.acoes,.pular{display:none}
+  .secao.escura{background:none;color:var(--tinta)}
+  .circuito h3{color:var(--tinta)}.circuito p{color:var(--tinta)}
+  details{display:block}details>*{display:block}
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="faixa">
+    <a class="marca" href="index.html">Plano Macro-Industrial</a>
+    <nav aria-label="Seções">
+      <a href="#problema">O problema</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contas">As contas</a>
+      <a href="#riscos">Riscos</a>
+      <a href="#contribua">Contribua</a>
+      <a class="wp" href="detalhes.html">Whitepaper</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero">
+    <div class="faixa">
+      <p class="status">Proposta de política pública, versão 2, novembro de 2026</p>
+      <h1>Crédito para a pequena indústria, pago pelo próprio sistema financeiro.</h1>
+      <p class="lead">Bancos que emprestam a micro e pequenas indústrias deixam de pagar imposto sobre parte dos títulos públicos que compram do Tesouro. Para cobrir essa isenção, a CSLL de todos os bancos sobe. A conta fecha dentro do setor.</p>
+
+      <div class="balanco" role="group" aria-label="Balanço fiscal do programa">
+        <div class="lados">
+          <div class="lado">
+            <p class="rotulo">O Estado deixa de arrecadar</p>
+            <p class="valor">até R$ 10 bi <small>por ano</small></p>
+            <p>Isenção de IRPJ e CSLL sobre a margem dos títulos comprados em leilão primário, só para bancos que cumprem a meta de crédito.</p>
+          </div>
+          <div class="lado entra">
+            <p class="rotulo">E passa a arrecadar</p>
+            <p class="valor">R$ 10,2 bi <small>por ano</small></p>
+            <p>CSLL dos bancos de 20% para 24% durante os cinco anos do programa, calculada sobre o lucro de 2025.</p>
+          </div>
+        </div>
+        <div class="fiel" aria-hidden="true"></div>
+        <div class="trava">
+          <strong>Trava automática</strong>
+          <p>Se a arrecadação extra ficar abaixo da isenção apurada, o teto do ano seguinte cai na mesma proporção.</p>
+        </div>
+      </div>
+
+      <div class="acoes">
+        <a class="botao principal" href="#como-funciona">Ver como funciona</a>
+        <a class="botao" href="detalhes.html">Ler o whitepaper</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="problema">
+    <div class="faixa">
+      <h2>Hoje, emprestar ao governo é o melhor negócio de um banco.</h2>
+      <p class="intro">Um título público rende a Selic, não tem risco de crédito e não consome capital regulatório. Emprestar a uma pequena indústria exige análise, provisão e capital. O dinheiro fica no Tesouro, e a empresa paga caro ou fica sem crédito.</p>
+      <dl class="dados">
+        <div class="dado"><dt>R$ 2,83 tri</dt><dd>em títulos federais nas mãos de instituições financeiras, 31,3% da dívida interna (set/2026)</dd></div>
+        <div class="dado"><dt>13,75%</dt><dd>Selic anual antes da reunião do Copom de novembro de 2026</dd></div>
+        <div class="dado"><dt>24,4%</dt><dd>juro médio anual do crédito livre para empresas (jun/2026)</dd></div>
+        <div class="dado"><dt>82,9%</dt><dd>dívida bruta do governo geral em relação ao PIB (set/2026)</dd></div>
+      </dl>
+      <p class="nota">Fontes: Tesouro Nacional (RMD set/2026) e Banco Central. Links na <a href="detalhes.html#referencias">lista de referências do whitepaper</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao escura" id="como-funciona">
+    <div class="faixa">
+      <h2>O caminho do dinheiro</h2>
+      <p class="intro">O benefício só existe se o crédito chegar à empresa e ficar mais barato. Cada etapa depende da anterior.</p>
+      <ol class="circuito">
+        <li>
+          <h3>O banco compra títulos no leilão do Tesouro</h3>
+          <p>Só a compra em leilão primário gera benefício. Títulos comprados de outro investidor não contam.</p>
+        </li>
+        <li>
+          <h3>Empresta a micro e pequenas indústrias</h3>
+          <p>R$ 3 em crédito ponderado para cada R$ 1 em títulos isentos, com piso de R$ 1 em crédito efetivo. Garantia parcial do FGI.</p>
+        </li>
+        <li>
+          <h3>Cobra menos do que o mercado</h3>
+          <p>O crédito só conta se a taxa ficar abaixo da média da modalidade, com desconto mínimo de metade do benefício recebido.</p>
+        </li>
+        <li>
+          <h3>A Receita confere e compensa</h3>
+          <p>A isenção é apurada por lote de título. A CSLL adicional cobre o teto, e a trava corrige qualquer diferença.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="faixa duas">
+      <div>
+        <h2>As regras que fecham as brechas</h2>
+        <ul class="regras">
+          <li><strong>Só conta o crescimento acima da linha de base.</strong> O estoque total de títulos do banco, de qualquer origem, precisa crescer. Trocar títulos antigos por novos não gera benefício.</li>
+          <li><strong>Isenção sobre a margem, não sobre o rendimento bruto.</strong> O custo de captação alocado aos títulos isentos deixa de ser dedutível, o que impede a arbitragem tributária.</li>
+          <li><strong>O banco pode vender, mas perde a isenção do lote.</strong> A venda consome primeiro os lotes isentos. Operações compromissadas não interrompem o benefício.</li>
+          <li><strong>Conta o conglomerado e só a carteira própria.</strong> Compras por distribuidoras do grupo ou por fundos administrados ficam de fora.</li>
+          <li><strong>Só vale crédito novo.</strong> A adicionalidade é medida no Sistema de Informações de Crédito do Banco Central. Refinanciamento não conta.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Peso de cada tipo de crédito</h2>
+        <div class="tabela">
+          <table>
+            <thead><tr><th scope="col">Destino do crédito</th><th scope="col" class="n">Peso na meta</th></tr></thead>
+            <tbody>
+              <tr><td>Cheque especial e cartão</td><td class="n">0,5×</td></tr>
+              <tr><td>Imobiliário e veículos</td><td class="n">1,0×</td></tr>
+              <tr><td>Investimento de médias e grandes indústrias</td><td class="n">2,5×</td></tr>
+              <tr class="destaque"><td>Micro e pequenas indústrias</td><td class="n">5,0×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="nota">Para R$ 100 em títulos isentos, com peso 5×, R$ 60 de crédito real já somariam os R$ 300 exigidos. Por isso existe o piso: o crédito efetivo nunca pode ser menor que o saldo de títulos isentos.</p>
+        <h3 style="margin-top:2rem">Conteúdo local fica fora do benefício fiscal</h3>
+        <p>A OMC já condenou o Brasil por benefício fiscal condicionado a conteúdo local, no caso do Inovar-Auto. A preferência por máquinas nacionais continua nas linhas próprias do BNDES/FINAME, que são crédito e não isenção.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="contas">
+    <div class="faixa">
+      <h2>As contas fiscais</h2>
+      <p class="intro">A Lei de Responsabilidade Fiscal exige compensar renúncias com aumento de alíquota ou de base. Como os gastos tributários da União já passam de 2% do PIB, a LC 224/2025 exige que a compensação dure toda a vigência do benefício.</p>
+      <div class="tabela">
+        <table>
+          <caption>Teto anual e CSLL necessária para compensá-lo</caption>
+          <thead><tr><th scope="col">Teto da isenção</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">% do PIB</th></tr></thead>
+          <tbody>
+            <tr><td>R$ 5 bi por ano</td><td class="n">20% → 22%</td><td class="n">0,04%</td></tr>
+            <tr class="destaque"><td>R$ 10 bi por ano (proposto)</td><td class="n">20% → 24%</td><td class="n">0,075%</td></tr>
+            <tr><td>R$ 15 bi por ano</td><td class="n">20% → 26%</td><td class="n">0,11%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Base de cálculo: lucro de R$ 255 bi dos bancos em 2025 (Banco Central). A base tributável real é maior, então a alíquota necessária tende a ser menor.</p>
+
+      <div class="duas" style="margin-top:3rem">
+        <div>
+          <h3>Por que o teto é obrigatório</h3>
+          <p>Sem limite, a isenção se acumula sobre o estoque. Com R$ 100 bi por ano de compras acima da linha de base, a renúncia chegaria a R$ 28 bi no quinto ano. Compensar isso exigiria CSLL de 31%.</p>
+        </div>
+        <div>
+          <h3>O que não entra na conta</h3>
+          <p>O IOF não serve como compensação: o crédito com recursos da FINAME e o financiamento de bens de capital já têm alíquota zero. A economia de juros do Tesouro é real, mas não conta no resultado primário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="faixa">
+      <h2>O efeito na economia</h2>
+      <p class="intro">Esta conta é separada da compensação fiscal. Ela mostra o que o programa pode gerar, não o que o paga.</p>
+      <div class="tabela larga">
+        <table>
+          <caption>Cenários por ano, com PIB de R$ 13,4 tri e dívida bruta de 82,9% do PIB</caption>
+          <thead><tr><th scope="col">Investimento extra</th><th scope="col" class="n">Multiplicador</th><th scope="col" class="n">PIB</th><th scope="col" class="n">Dívida/PIB</th><th scope="col" class="n">Receita federal extra</th></tr></thead>
+          <tbody>
+            <tr><td>R$ 50 bi</td><td class="n">1,0</td><td class="n">+0,37%</td><td class="n">−0,31 p.p.</td><td class="n">R$ 11,5 bi</td></tr>
+            <tr><td>R$ 50 bi</td><td class="n">1,69</td><td class="n">+0,63%</td><td class="n">−0,52 p.p.</td><td class="n">R$ 19,5 bi</td></tr>
+            <tr><td>R$ 100 bi</td><td class="n">1,0</td><td class="n">+0,75%</td><td class="n">−0,61 p.p.</td><td class="n">R$ 23,0 bi</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Ponto de equilíbrio econômico:</strong> R$ 43 bi de PIB extra por ano, ou 0,32% do PIB, geram receita federal igual ao teto. Acima disso, o ganho supera a própria renúncia, que já está compensada pela CSLL.</p>
+      <p class="nota">Só conta o investimento que não aconteceria sem o programa. Com a economia aquecida, o Copom pode reagir com juros mais altos e anular parte do ganho. Detalhes e premissas no whitepaper.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="juros">
+    <div class="faixa">
+      <h2>O que o programa garante sobre juros</h2>
+      <p class="intro">A Selic é decidida pelo Copom, que tem autonomia por lei. O programa não promete cortá-la. Ele garante a queda dos juros que estão ao seu alcance.</p>
+      <div class="compromissos">
+        <div>
+          <h3>Juro menor para a empresa</h3>
+          <p>O crédito só entra na meta com desconto mínimo de metade do benefício por real emprestado: cerca de 1 ponto percentual no crédito comum e mais de 4 pontos para micro e pequenas indústrias.</p>
+        </div>
+        <div>
+          <h3>Custo da dívida medido</h3>
+          <p>O Tesouro publica a diferença entre as taxas dos leilões e as do mercado secundário no mesmo dia. É a prova de quanto do benefício voltou ao Estado.</p>
+        </div>
+        <div>
+          <h3>Metas com gatilho</h3>
+          <p>Se em dois anos a taxa média às MPEs e o custo de emissão não caírem, o teto é reduzido ou o programa termina antes dos cinco anos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="riscos">
+    <div class="faixa">
+      <h2>Riscos e respostas</h2>
+      <details>
+        <summary>O banco não pode só trocar títulos antigos por novos?</summary>
+        <p>Não ganha nada com isso. A isenção vale apenas até o crescimento do estoque total de títulos do banco acima de uma linha de base, independentemente da origem.</p>
+      </details>
+      <details>
+        <summary>Isso não amarra ainda mais os bancos à dívida pública?</summary>
+        <p>O teto limita o efeito. R$ 10 bi por ano cobrem no máximo cerca de R$ 178 bi em títulos isentos, perto de 6% do que as instituições financeiras já carregam.</p>
+      </details>
+      <details>
+        <summary>E se as pequenas indústrias não pagarem?</summary>
+        <p>A garantia do FGI é parcial, e o banco continua com parte do risco. Aportes ao fundo são despesa, não renúncia, e precisam de dotação própria no orçamento. As perdas entram na avaliação anual do programa.</p>
+      </details>
+      <details>
+        <summary>A OMC pode questionar o programa?</summary>
+        <p>O benefício fiscal não depende da origem das máquinas compradas, que foi o ponto condenado no caso Inovar-Auto. A preferência por bens nacionais fica restrita às linhas de crédito do BNDES.</p>
+      </details>
+      <details>
+        <summary>Só os grandes bancos participam?</summary>
+        <p>No desenho atual, sim: apenas os dealers do Tesouro compram em leilão primário. Estender o programa a cooperativas de crédito e bancos menores, que emprestam muito a pequenas empresas, é um ponto em aberto para a próxima versão.</p>
+      </details>
+      <details>
+        <summary>O programa derruba a Selic?</summary>
+        <p>Não, e não pretende. Ele reduz o custo de emissão da dívida e o juro pago pelas empresas. Uma trajetória fiscal melhor ajuda o Banco Central, mas a decisão continua com o Copom.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="faixa">
+      <h2>O que já existe e o que muda</h2>
+      <div class="tabela" style="max-width:900px">
+        <table>
+          <thead><tr><th scope="col">Instrumento</th><th scope="col">O que faz</th><th scope="col">Relação com o plano</th></tr></thead>
+          <tbody>
+            <tr><td>LCD (Lei 14.937/2024)</td><td>Título com isenção de IR para pessoa física, emitido por bancos de desenvolvimento, até R$ 10 bi por ano por emissor</td><td>Barateia o funding do BNDES. O plano atua na tesouraria dos bancos privados.</td></tr>
+            <tr><td>BNDES FINAME</td><td>Financia máquinas credenciadas, com exigência de nacionalização</td><td>Continua financiando a oferta. Os bancos privados financiam a demanda das MPEs.</td></tr>
+            <tr><td>FGI</td><td>Fundo garantidor do BNDES para pequenas e médias empresas</td><td>Garantia parcial das operações do programa.</td></tr>
+            <tr><td>Pronampe</td><td>Crédito a micro e pequenas empresas com garantia do FGO</td><td>Programa com dotação orçamentária. O plano usa incentivo tributário compensado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escura final">
+    <div class="faixa">
+      <h2>Leia a proposta completa</h2>
+      <p class="intro">O whitepaper traz as regras de elegibilidade, a base legal da compensação, as premissas de cada número, os riscos prudenciais e as limitações conhecidas.</p>
+      <div class="acoes">
+        <a class="botao principal" style="background:var(--seguranca);border-color:var(--seguranca);color:var(--tinta)" href="detalhes.html">Ler o whitepaper</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="contribua">
+    <div class="faixa contribua">
+      <div>
+        <h2>Esta proposta é aberta a contribuições</h2>
+        <p class="intro">Encontrou um número desatualizado, uma brecha ou uma ideia melhor? Proponha a mudança diretamente no repositório. Cada versão fica registrada, com o crédito de quem contribuiu.</p>
+        <div class="acoes">
+          <a class="botao principal" href="https://github.com/marluan/plano-macro-industrial">Abrir o repositório no GitHub</a>
+          <a class="botao" href="https://github.com/marluan/plano-macro-industrial/issues">Sugerir sem editar</a>
+        </div>
+      </div>
+      <div>
+        <h3>Como enviar uma alteração</h3>
+        <ol class="passos">
+          <li>Faça um fork do repositório.</li>
+          <li>Edite os arquivos e cite a fonte de cada número novo, com link e data.</li>
+          <li>Abra um pull request para a branch <code>main</code> explicando o que mudou e por quê.</li>
+        </ol>
+        <p class="nota">As regras estão no arquivo <a href="https://github.com/marluan/plano-macro-industrial/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="faixa">
+    <p>Plano Macro-Industrial de Crédito Direcionado. Versão 2, novembro de 2026. Números com fonte e data no <a href="detalhes.html#referencias">whitepaper</a>.</p>
+    <p class="licenca"><a href="https://github.com/marluan">marluan</a> é o autor desta proposta. O conteúdo está sob a licença <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" width="20" height="20"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" width="20" height="20">: qualquer pessoa pode copiar, adaptar e redistribuir, desde que mantenha o crédito ao autor, indique a licença e informe o que foi alterado.</p>
+  </div>
+</footer>
+</body>
+</html>
