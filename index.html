@@ -118,7 +118,7 @@ tr.destaque td{background:rgba(233,185,44,.22);font-weight:700}
 tr.destaque td:first-child{box-shadow:inset 6px 0 0 var(--seguranca);padding-left:.9rem}
 
 /* compromissos */
-.compromissos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.compromissos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 3rem;margin-top:2rem;max-width:960px}
 .compromissos div{border-top:2px solid var(--tinta);padding-top:1rem}
 .compromissos p{font-size:.98rem}
 .aviso{border-left:6px solid var(--seguranca);padding:.9rem 1.2rem;background:var(--branco);margin-top:2rem;max-width:760px}
@@ -176,6 +176,7 @@ details p{padding-bottom:.5rem}
       <a href="#problema">O problema</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#contas">As contas</a>
+      <a href="#juros">Política monetária</a>
       <a href="#riscos">Riscos</a>
       <a href="#contribua">Contribua</a>
       <a class="wp" href="detalhes.html">Whitepaper</a>
@@ -186,9 +187,9 @@ details p{padding-bottom:.5rem}
 <main id="conteudo">
   <section class="hero">
     <div class="faixa">
-      <p class="status">Proposta de política pública, versão 2, novembro de 2026</p>
+      <p class="status">Proposta de política pública, versão 2.1, novembro de 2026</p>
       <h1>Crédito para a pequena indústria, pago pelo próprio sistema financeiro.</h1>
-      <p class="lead">Bancos que emprestam a micro e pequenas indústrias deixam de pagar imposto sobre parte dos títulos públicos que compram do Tesouro. Para cobrir essa isenção, a CSLL de todos os bancos sobe. A conta fecha dentro do setor.</p>
+      <p class="lead">Bancos que emprestam a micro e pequenas indústrias deixam de pagar imposto sobre parte dos títulos públicos que compram do Tesouro. Para cobrir essa isenção, a CSLL de todos os bancos sobe. A conta fecha dentro do setor, e a sobra vai para abater a dívida.</p>
 
       <div class="balanco" role="group" aria-label="Balanço fiscal do programa">
         <div class="lados">
@@ -199,8 +200,8 @@ details p{padding-bottom:.5rem}
           </div>
           <div class="lado entra">
             <p class="rotulo">E passa a arrecadar</p>
-            <p class="valor">R$ 10,2 bi <small>por ano</small></p>
-            <p>CSLL dos bancos de 20% para 24% durante os cinco anos do programa, calculada sobre o lucro de 2025.</p>
+            <p class="valor">R$ 12,75 bi <small>por ano</small></p>
+            <p>CSLL dos bancos de 20% para 25% durante os cinco anos do programa, calculada sobre o lucro de 2025. A diferença, R$ 2,75 bi por ano, vai para abater a dívida.</p>
           </div>
         </div>
         <div class="fiel" aria-hidden="true"></div>
@@ -246,7 +247,7 @@ details p{padding-bottom:.5rem}
         </li>
         <li>
           <h3>Cobra menos do que o mercado</h3>
-          <p>O crédito só conta se a taxa ficar abaixo da média da modalidade, com desconto mínimo de metade do benefício recebido.</p>
+          <p>Crédito pós-fixado em CDI mais spread, que acompanha a Selic. O spread fica abaixo da média da modalidade, com desconto mínimo de metade do benefício recebido.</p>
         </li>
         <li>
           <h3>A Receita confere e compensa</h3>
@@ -274,14 +275,14 @@ details p{padding-bottom:.5rem}
           <table>
             <thead><tr><th scope="col">Destino do crédito</th><th scope="col" class="n">Peso na meta</th></tr></thead>
             <tbody>
-              <tr><td>Cheque especial e cartão</td><td class="n">0,5×</td></tr>
-              <tr><td>Imobiliário e veículos</td><td class="n">1,0×</td></tr>
+              <tr><td>Consumo: cartão, cheque especial, crédito pessoal e veículos</td><td class="n">não conta</td></tr>
+              <tr><td>Imobiliário residencial</td><td class="n">1,0×</td></tr>
               <tr><td>Investimento de médias e grandes indústrias</td><td class="n">2,5×</td></tr>
               <tr class="destaque"><td>Micro e pequenas indústrias</td><td class="n">5,0×</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="nota">Para R$ 100 em títulos isentos, com peso 5×, R$ 60 de crédito real já somariam os R$ 300 exigidos. Por isso existe o piso: o crédito efetivo nunca pode ser menor que o saldo de títulos isentos.</p>
+        <p class="nota">Para R$ 100 em títulos isentos, com peso 5×, R$ 60 de crédito real já somariam os R$ 300 exigidos. Por isso existe o piso: o crédito efetivo nunca pode ser menor que o saldo de títulos isentos. Crédito ao consumo não conta porque aumenta a demanda sem aumentar a capacidade de produzir.</p>
         <h3 style="margin-top:2rem">Conteúdo local fica fora do benefício fiscal</h3>
         <p>A OMC já condenou o Brasil por benefício fiscal condicionado a conteúdo local, no caso do Inovar-Auto. A preferência por máquinas nacionais continua nas linhas próprias do BNDES/FINAME, que são crédito e não isenção.</p>
       </div>
@@ -292,18 +293,18 @@ details p{padding-bottom:.5rem}
     <div class="faixa">
       <h2>As contas fiscais</h2>
       <p class="intro">A Lei de Responsabilidade Fiscal exige compensar renúncias com aumento de alíquota ou de base. Como os gastos tributários da União já passam de 2% do PIB, a LC 224/2025 exige que a compensação dure toda a vigência do benefício.</p>
-      <div class="tabela">
+      <div class="tabela larga">
         <table>
-          <caption>Teto anual e CSLL necessária para compensá-lo</caption>
-          <thead><tr><th scope="col">Teto da isenção</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">% do PIB</th></tr></thead>
+          <caption>Teto anual, CSLL e saldo fiscal</caption>
+          <thead><tr><th scope="col">Configuração</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">Arrecadação extra</th><th scope="col" class="n">Saldo por ano</th></tr></thead>
           <tbody>
-            <tr><td>R$ 5 bi por ano</td><td class="n">20% → 22%</td><td class="n">0,04%</td></tr>
-            <tr class="destaque"><td>R$ 10 bi por ano (proposto)</td><td class="n">20% → 24%</td><td class="n">0,075%</td></tr>
-            <tr><td>R$ 15 bi por ano</td><td class="n">20% → 26%</td><td class="n">0,11%</td></tr>
+            <tr><td>Teto de R$ 10 bi, só compensação</td><td class="n">20% → 24%</td><td class="n">R$ 10,2 bi</td><td class="n">+R$ 0,2 bi</td></tr>
+            <tr class="destaque"><td>Teto de R$ 10 bi com superávit (proposto)</td><td class="n">20% → 25%</td><td class="n">R$ 12,75 bi</td><td class="n">+R$ 2,75 bi</td></tr>
+            <tr><td>Teto reduzido a R$ 5 bi pelo gatilho</td><td class="n">25%</td><td class="n">R$ 12,75 bi</td><td class="n">+R$ 7,75 bi</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Base de cálculo: lucro de R$ 255 bi dos bancos em 2025 (Banco Central). A base tributável real é maior, então a alíquota necessária tende a ser menor.</p>
+      <p class="nota">Base de cálculo: lucro de R$ 255 bi dos bancos em 2025 (Banco Central). A base tributável real é maior, então a alíquota necessária tende a ser menor. Cada ponto de CSLL rende cerca de R$ 2,55 bi; em cinco anos, o superávit proposto soma R$ 13,75 bi.</p>
 
       <div class="duas" style="margin-top:3rem">
         <div>
@@ -340,21 +341,28 @@ details p{padding-bottom:.5rem}
 
   <section class="secao" id="juros">
     <div class="faixa">
-      <h2>O que o programa garante sobre juros</h2>
-      <p class="intro">A Selic é decidida pelo Copom, que tem autonomia por lei. O programa não promete cortá-la. Ele garante a queda dos juros que estão ao seu alcance.</p>
+      <h2>Coordenação com a política monetária</h2>
+      <p class="intro">A Selic é decidida pelo Copom, que tem autonomia por lei, e o Banco Central não ganha com juro alto: o resultado dele vai para o Tesouro. O que mantém a Selic alta é a inflação e o risco fiscal. O programa foi desenhado para não atrapalhar o Banco Central e para atacar essas causas.</p>
       <div class="compromissos">
         <div>
-          <h3>Juro menor para a empresa</h3>
-          <p>O crédito só entra na meta com desconto mínimo de metade do benefício por real emprestado: cerca de 1 ponto percentual no crédito comum e mais de 4 pontos para micro e pequenas indústrias.</p>
+          <h3>O juro do programa segue a Selic</h3>
+          <p>O crédito é pós-fixado, em CDI mais spread. Quando a Selic sobe ou cai, ele acompanha. Assim o programa não vira "meia-entrada", o argumento de que crédito subsidiado obriga o Banco Central a manter juros mais altos.</p>
         </div>
         <div>
-          <h3>Custo da dívida medido</h3>
-          <p>O Tesouro publica a diferença entre as taxas dos leilões e as do mercado secundário no mesmo dia. É a prova de quanto do benefício voltou ao Estado.</p>
+          <h3>Só conta crédito que aumenta a produção</h3>
+          <p>Crédito ao consumo fica fora da meta. Máquinas e investimento ampliam a capacidade de produzir, o que reduz a pressão sobre os preços com o tempo.</p>
         </div>
         <div>
-          <h3>Metas com gatilho</h3>
-          <p>Se em dois anos a taxa média às MPEs e o custo de emissão não caírem, o teto é reduzido ou o programa termina antes dos cinco anos.</p>
+          <h3>O teto encolhe quando a inflação persiste</h3>
+          <p>Se a média dos núcleos do IPCA em 12 meses passar de 4,5%, o teto do semestre seguinte cai para R$ 5 bi. Choques de alimentos ou combustíveis não acionam o gatilho.</p>
         </div>
+        <div>
+          <h3>Parte da arrecadação abate a dívida</h3>
+          <p>A CSLL de 25% gera R$ 2,75 bi por ano além do teto, ou R$ 13,75 bi em cinco anos. Disciplina fiscal é o que reduz a taxa neutra de juros.</p>
+        </div>
+      </div>
+      <div class="aviso">
+        <p><strong>Medido e publicado:</strong> o juro pago pelas empresas, a diferença entre as taxas dos leilões e as do mercado secundário e o efeito sobre a curva de juros futuros. Se em dois anos o juro às MPEs e o custo de emissão não caírem, o teto é reduzido ou o programa termina antes dos cinco anos.</p>
       </div>
     </div>
   </section>
@@ -384,7 +392,11 @@ details p{padding-bottom:.5rem}
       </details>
       <details>
         <summary>O programa derruba a Selic?</summary>
-        <p>Não, e não pretende. Ele reduz o custo de emissão da dívida e o juro pago pelas empresas. Uma trajetória fiscal melhor ajuda o Banco Central, mas a decisão continua com o Copom.</p>
+        <p>Não diretamente, e nenhuma lei pode obrigar o Copom a cortar. O programa ataca as causas do juro alto: gera superávit, só financia o que aumenta a produção e encolhe quando a inflação persiste. Isso abre espaço para cortes, mas a decisão continua com o Banco Central.</p>
+      </details>
+      <details>
+        <summary>Por que não mudar a meta de inflação para o núcleo?</summary>
+        <p>Hoje o núcleo e o índice cheio estão quase iguais, então o alívio seria pequeno. No longo prazo os dois andam juntos, e Tailândia e Coreia abandonaram metas de núcleo. Além disso, uma lei de crédito que mexe na meta seria lida como pressão sobre o Banco Central e elevaria os juros longos. O programa usa o núcleo só no próprio gatilho.</p>
       </details>
     </div>
   </section>
@@ -441,7 +453,7 @@ details p{padding-bottom:.5rem}
 
 <footer class="rodape">
   <div class="faixa">
-    <p>Plano Macro-Industrial de Crédito Direcionado. Versão 2, novembro de 2026. Números com fonte e data no <a href="detalhes.html#referencias">whitepaper</a>.</p>
+    <p>Plano Macro-Industrial de Crédito Direcionado. Versão 2.1, novembro de 2026. Números com fonte e data no <a href="detalhes.html#referencias">whitepaper</a>.</p>
     <p class="licenca"><a href="https://github.com/marluan">marluan</a> é o autor desta proposta. O conteúdo está sob a licença <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" width="20" height="20"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" width="20" height="20">: qualquer pessoa pode copiar, adaptar e redistribuir, desde que mantenha o crédito ao autor, indique a licença e informe o que foi alterado.</p>
   </div>
 </footer>

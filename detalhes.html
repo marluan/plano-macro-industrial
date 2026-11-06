@@ -135,7 +135,7 @@ ol.refs a{word-break:break-word}
       <li><a href="#mecanismo">2. Mecanismo</a></li>
       <li><a href="#fiscal">3. Impacto fiscal e compensação</a></li>
       <li><a href="#economia">4. Impacto econômico</a></li>
-      <li><a href="#juros">5. Juros</a></li>
+      <li><a href="#juros">5. Coordenação com a política monetária</a></li>
       <li><a href="#industria">6. Indústria e conteúdo local</a></li>
       <li><a href="#prudencial">7. Aspectos prudenciais</a></li>
       <li><a href="#governanca">8. Governança e metas</a></li>
@@ -148,7 +148,7 @@ ol.refs a{word-break:break-word}
 
   <article id="documento">
     <header class="doc">
-      <p class="status">Whitepaper, versão 2, novembro de 2026</p>
+      <p class="status">Whitepaper, versão 2.1, novembro de 2026</p>
       <h1>Plano Macro-Industrial de Crédito Direcionado</h1>
       <p class="lead">Regras, base legal e premissas de uma isenção tributária condicionada a crédito produtivo, compensada integralmente dentro do sistema financeiro.</p>
     </header>
@@ -157,10 +157,10 @@ ol.refs a{word-break:break-word}
       <h2>Resumo</h2>
       <ul>
         <li>Bancos que compram títulos federais em leilão primário e emprestam a micro e pequenas indústrias deixam de pagar IRPJ e CSLL sobre a margem desses títulos.</li>
-        <li>A isenção vale só sobre o crescimento do estoque de títulos acima de uma linha de base, exige R$ 3 em crédito ponderado para cada R$ 1 isento, com piso de R$ 1 em crédito efetivo, e obriga o banco a repassar parte do benefício ao tomador.</li>
-        <li>A renúncia tem teto de R$ 10 bi por ano e é compensada pela elevação da CSLL dos bancos de 20% para 24% durante os cinco anos do programa, com trava automática que impede saldo negativo.</li>
+        <li>A isenção vale só sobre o crescimento do estoque de títulos acima de uma linha de base, exige R$ 3 em crédito ponderado para cada R$ 1 isento, com piso de R$ 1 em crédito efetivo, não conta crédito ao consumo e obriga o banco a repassar parte do benefício ao tomador em crédito pós-fixado.</li>
+        <li>A renúncia tem teto de R$ 10 bi por ano, que cai para R$ 5 bi quando a inflação subjacente persiste acima da meta. A CSLL dos bancos sobe de 20% para 25% durante os cinco anos do programa: compensa o teto e gera R$ 2,75 bi por ano de superávit, com trava automática que impede saldo negativo.</li>
         <li>O efeito econômico é tratado à parte: R$ 43 bi de PIB extra por ano geram receita federal igual ao teto. Essa conta não entra na compensação legal.</li>
-        <li>O programa não interfere na Selic. Ele mede e exige queda do juro ao tomador e do custo de emissão do Tesouro.</li>
+        <li>O programa não interfere na Selic. Ele foi desenhado para não reduzir a força da política monetária e para atacar as causas do juro alto, e mede o juro ao tomador, o custo de emissão e a curva de juros futuros.</li>
       </ul>
     </section>
 
@@ -210,13 +210,13 @@ ol.refs a{word-break:break-word}
       </ul>
 
       <h3>2.5 Contrapartida de crédito</h3>
-      <p>O banco precisa manter crédito ponderado igual a <strong>3 vezes o saldo médio isento</strong> no período, calculado pro rata. Os pesos privilegiam o investimento industrial de menor porte:</p>
+      <p>O banco precisa manter crédito ponderado igual a <strong>3 vezes o saldo médio isento</strong> no período, calculado pro rata. Os pesos privilegiam o investimento industrial de menor porte. Crédito ao consumo não conta, porque aumenta a demanda sem aumentar a capacidade de produzir (seção 5):</p>
       <div class="tabela">
         <table>
           <thead><tr><th scope="col">Destino do crédito</th><th scope="col" class="n">Peso</th></tr></thead>
           <tbody>
-            <tr><td>Cheque especial e cartão de crédito</td><td class="n">0,5×</td></tr>
-            <tr><td>Imobiliário e veículos</td><td class="n">1,0×</td></tr>
+            <tr><td>Consumo: cartão, cheque especial, crédito pessoal e veículos</td><td class="n">não conta</td></tr>
+            <tr><td>Imobiliário residencial</td><td class="n">1,0×</td></tr>
             <tr><td>Investimento de médias e grandes indústrias</td><td class="n">2,5×</td></tr>
             <tr class="destaque"><td>Micro e pequenas indústrias</td><td class="n">5,0×</td></tr>
           </tbody>
@@ -229,12 +229,15 @@ ol.refs a{word-break:break-word}
       </ul>
 
       <h3>2.6 Repasse obrigatório ao tomador</h3>
-      <p>Uma operação só entra na meta se a taxa cobrada ficar abaixo da média de mercado da mesma modalidade e porte, publicada pelo Banco Central. O desconto mínimo é metade do benefício fiscal por real emprestado:</p>
+      <p>As operações do programa são pós-fixadas, em CDI mais spread, para que o custo acompanhe a Selic (seção 5). Uma operação só entra na meta se o spread ficar abaixo do spread médio de mercado da mesma modalidade e porte, publicado pelo Banco Central. O desconto mínimo é metade do benefício fiscal por real emprestado:</p>
       <div class="formula">Desconto mínimo (p.p.) = 50% × benefício fiscal do banco no ano ÷ saldo médio de crédito efetivo do programa</div>
       <p>Com o teto cheio e sem ponderação, o benefício equivale a cerca de 1,9% ao ano do crédito, e o desconto mínimo fica perto de 1 ponto percentual. Se todo o crédito for a MPEs com peso 5×, o benefício por real emprestado chega a cerca de 9,4% e o desconto mínimo passa de 4 pontos.</p>
 
-      <h3>2.7 Teto e rateio</h3>
+      <h3>2.7 Teto, rateio e gatilho anticíclico</h3>
       <p>A soma das isenções tem teto de R$ 10 bi por ano. Se os pedidos superarem o teto, o benefício é rateado proporcionalmente ao saldo isento apurado de cada banco.</p>
+      <div class="caixa">
+        <p><strong>Gatilho anticíclico:</strong> se a média dos núcleos do IPCA acumulada em 12 meses ficar acima do limite superior do intervalo da meta (4,5%), o teto do semestre seguinte cai para R$ 5 bi. Ele volta a R$ 10 bi quando a média retorna ao intervalo. O gatilho usa os núcleos para não reagir a choques de alimentos e combustíveis.</p>
+      </div>
     </section>
 
     <section id="fiscal">
@@ -262,19 +265,19 @@ ol.refs a{word-break:break-word}
       <p>Em cinco anos seriam R$ 84 bi, e a CSLL dos bancos teria de chegar a 31%. A proposta fixa o teto para que a compensação seja viável.</p>
 
       <h3>3.3 A compensação</h3>
-      <p>A CSLL dos bancos, hoje em 20% <sup><a href="#r9">[9]</a></sup>, sobe para 24% durante os cinco anos do programa. Todos os bancos pagam a alíquota maior; os que cumprem a meta recebem a isenção. O incentivo é a diferença entre cumprir e não cumprir.</p>
+      <p>A CSLL dos bancos, hoje em 20% <sup><a href="#r9">[9]</a></sup>, sobe para 25% durante os cinco anos do programa. Quatro pontos cobrem o teto de R$ 10 bi; o quinto ponto gera superávit para abater a dívida. Todos os bancos pagam a alíquota maior; os que cumprem a meta recebem a isenção. O incentivo é a diferença entre cumprir e não cumprir.</p>
       <div class="tabela larga">
         <table>
-          <caption>Teto e CSLL necessária</caption>
-          <thead><tr><th scope="col">Teto anual</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">Arrecadação extra</th><th scope="col" class="n">Saldo isento coberto*</th></tr></thead>
+          <caption>Teto, CSLL e saldo fiscal anual</caption>
+          <thead><tr><th scope="col">Configuração</th><th scope="col" class="n">CSLL dos bancos</th><th scope="col" class="n">Arrecadação extra</th><th scope="col" class="n">Saldo por ano</th></tr></thead>
           <tbody>
-            <tr><td>R$ 5 bi</td><td class="n">22%</td><td class="n">R$ 5,1 bi</td><td class="n">R$ 89 bi</td></tr>
-            <tr class="destaque"><td>R$ 10 bi (proposto)</td><td class="n">24%</td><td class="n">R$ 10,2 bi</td><td class="n">R$ 178 bi</td></tr>
-            <tr><td>R$ 15 bi</td><td class="n">26%</td><td class="n">R$ 15,3 bi</td><td class="n">R$ 267 bi</td></tr>
+            <tr><td>Teto de R$ 10 bi, só compensação</td><td class="n">24%</td><td class="n">R$ 10,2 bi</td><td class="n">+R$ 0,2 bi</td></tr>
+            <tr class="destaque"><td>Teto de R$ 10 bi com superávit (proposto)</td><td class="n">25%</td><td class="n">R$ 12,75 bi</td><td class="n">+R$ 2,75 bi</td></tr>
+            <tr><td>Teto reduzido a R$ 5 bi pelo gatilho</td><td class="n">25%</td><td class="n">R$ 12,75 bi</td><td class="n">+R$ 7,75 bi</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Arrecadação estimada sobre o lucro líquido de R$ 255 bi do sistema bancário em 2025 <sup><a href="#r5">[5]</a></sup>. A base tributável da CSLL é maior que o lucro líquido, então a estimativa é conservadora; o número final deve vir da Receita Federal. *Saldo calculado com isenção sobre o rendimento bruto a 12,5%; com isenção sobre a margem, o mesmo teto cobre um saldo maior.</p>
+      <p class="nota">Arrecadação estimada sobre o lucro líquido de R$ 255 bi do sistema bancário em 2025 <sup><a href="#r5">[5]</a></sup>. A base tributável da CSLL é maior que o lucro líquido, então a estimativa é conservadora; o número final deve vir da Receita Federal. Cada ponto de CSLL rende cerca de R$ 2,55 bi. Com isenção sobre o rendimento bruto a 12,5%, o teto de R$ 10 bi cobre cerca de R$ 178 bi em títulos isentos; com isenção sobre a margem, cobre um saldo maior.</p>
       <p>Mudar a CSLL do setor financeiro já é prática corrente: a própria LC 224/2025 reorganizou as alíquotas por tipo de instituição <sup><a href="#r9">[9]</a></sup>.</p>
 
       <h3>3.4 Trava automática</h3>
@@ -319,15 +322,39 @@ ol.refs a{word-break:break-word}
     </section>
 
     <section id="juros">
-      <h2><span class="num">5</span> Juros</h2>
-      <p>A Selic é decidida pelo Copom. Por lei, o Banco Central tem como objetivo fundamental assegurar a estabilidade de preços <sup><a href="#r12">[12]</a></sup>. Uma lei que obrigasse cortes seria lida como interferência política e tenderia a elevar os juros longos. O programa, portanto, não promete queda da Selic.</p>
-      <p>Ele se compromete com os juros que estão ao seu alcance:</p>
+      <h2><span class="num">5</span> Coordenação com a política monetária</h2>
+      <p>A Selic é decidida pelo Copom. Por lei, o Banco Central tem como objetivo fundamental assegurar a estabilidade de preços <sup><a href="#r12">[12]</a></sup>. Uma lei que obrigasse cortes seria lida como interferência política e tenderia a elevar os juros longos. O programa não promete queda da Selic. Ele foi desenhado para não atrapalhar a política monetária e para atacar as causas do juro alto.</p>
+
+      <h3>5.1 O Banco Central não ganha com juro alto</h3>
+      <p>O resultado positivo do Banco Central é transferido ao Tesouro <sup><a href="#r21">[21]</a></sup>. Quem recebe os juros da dívida são os detentores dos títulos. O que mantém a Selic alta é a inflação e o risco fiscal: segundo o Copom, a perda de disciplina fiscal eleva a taxa de juros neutra <sup><a href="#r24">[24]</a></sup>.</p>
+
+      <h3>5.2 O risco da meia-entrada</h3>
+      <p>O Banco Central argumenta que crédito subsidiado reduz a força da política monetária e obriga a manter a Selic mais alta, como uma meia-entrada que encarece a entrada inteira <sup><a href="#r22">[22]</a></sup>. Há estudos que não encontram esse efeito no nível macroeconômico <sup><a href="#r23">[23]</a></sup>, mas a proposta não depende de vencer esse debate: as regras abaixo evitam o problema.</p>
+
+      <h3>5.3 Como o programa evita o problema</h3>
       <ol>
-        <li><strong>Juro ao tomador:</strong> o desconto mínimo da seção 2.6 garante que parte do benefício chegue à empresa.</li>
-        <li><strong>Custo da dívida:</strong> como só o leilão primário gera benefício, os dealers tendem a disputar os títulos com taxas menores. O Tesouro publica, a cada leilão, a diferença entre a taxa de emissão e a taxa do mercado secundário no mesmo dia.</li>
-        <li><strong>Gatilho:</strong> se em dois anos a taxa média às MPEs participantes e o custo de emissão não caírem em relação às referências, o teto é reduzido ou o programa é encerrado antes do prazo.</li>
+        <li><strong>Juro que segue a Selic:</strong> o crédito do programa é pós-fixado, em CDI mais spread (seção 2.6). Quando a Selic muda, o custo para a empresa muda junto.</li>
+        <li><strong>Só crédito que aumenta a produção:</strong> crédito ao consumo não conta para a meta (seção 2.5). Investimento amplia a capacidade produtiva e reduz a pressão sobre os preços com o tempo.</li>
+        <li><strong>Gatilho anticíclico:</strong> o teto cai para R$ 5 bi quando a média dos núcleos do IPCA passa de 4,5% em 12 meses (seção 2.7). O programa nunca trabalha contra o Copom.</li>
+        <li><strong>Superávit:</strong> a CSLL de 25% gera R$ 2,75 bi por ano além do teto, ou R$ 13,75 bi em cinco anos (seção 3.3), e mais se o gatilho reduzir o teto.</li>
       </ol>
-      <p>Uma trajetória fiscal melhor ajuda a política monetária, mas a decisão sobre a Selic continua com o Banco Central.</p>
+
+      <h3>5.4 O que é medido</h3>
+      <ul>
+        <li><strong>Juro ao tomador:</strong> o desconto mínimo da seção 2.6 garante que parte do benefício chegue à empresa.</li>
+        <li><strong>Custo da dívida:</strong> como só o leilão primário gera benefício, os dealers tendem a disputar os títulos com taxas menores. O Tesouro publica, a cada leilão, a diferença entre a taxa de emissão e a do mercado secundário no mesmo dia.</li>
+        <li><strong>Curva longa:</strong> a maior parte do crédito depende de taxas longas, não da Selic <sup><a href="#r25">[25]</a></sup>. O efeito do programa sobre a curva de juros futuros é acompanhado e publicado.</li>
+        <li><strong>Gatilho de revisão:</strong> se em dois anos a taxa média às MPEs participantes e o custo de emissão não caírem em relação às referências, o teto é reduzido ou o programa é encerrado antes do prazo.</li>
+      </ul>
+
+      <h3>5.5 Por que não mudar a meta de inflação para o núcleo</h3>
+      <p>O índice da meta é definido pelo Conselho Monetário Nacional e hoje é o IPCA <sup><a href="#r26">[26]</a></sup>. Trocá-lo pelo núcleo não está no escopo do programa, por três motivos:</p>
+      <ul>
+        <li>Em outubro de 2026, o IPCA-15 acumulava 4,62% em 12 meses e a média dos núcleos, 4,43% <sup><a href="#r27">[27]</a></sup>. O alívio seria pequeno, e a pressão atual vem justamente dos serviços, que o núcleo capta.</li>
+        <li>No longo prazo, núcleo e índice cheio andam juntos. Tailândia e Coreia adotaram metas de núcleo e voltaram à inflação cheia, que reflete melhor o custo de vida <sup><a href="#r28">[28]</a></sup> <sup><a href="#r29">[29]</a></sup>.</li>
+        <li>Uma lei de crédito que mexe na meta seria lida como pressão sobre o Banco Central, elevando o prêmio de risco e os juros longos.</li>
+      </ul>
+      <p>O núcleo é usado onde cabe ao programa: no gatilho anticíclico do próprio teto.</p>
     </section>
 
     <section id="industria">
@@ -363,8 +390,8 @@ ol.refs a{word-break:break-word}
           <ol>
             <li>crédito adicional a micro e pequenas indústrias acima da linha de base;</li>
             <li>queda da taxa média dessas operações em relação à média de mercado;</li>
-            <li>diferença entre a taxa de emissão e a do mercado secundário nos leilões;</li>
-            <li>saldo fiscal acumulado (CSLL adicional menos renúncia) maior ou igual a zero.</li>
+            <li>diferença entre a taxa de emissão e a do mercado secundário nos leilões, e efeito sobre a curva de juros futuros;</li>
+            <li>saldo fiscal acumulado (CSLL adicional menos renúncia) de pelo menos R$ 2,75 bi por ano.</li>
           </ol>
         </li>
       </ul>
@@ -389,7 +416,7 @@ ol.refs a{word-break:break-word}
       <h2><span class="num">10</span> Limitações e pontos em aberto</h2>
       <ul>
         <li><strong>Acesso restrito aos dealers.</strong> Só eles compram em leilão primário. Cooperativas de crédito e bancos menores, que têm peso grande no crédito a pequenas empresas, ficam de fora no desenho atual.</li>
-        <li><strong>Base da CSLL.</strong> A alíquota de 24% foi estimada sobre o lucro líquido. O cálculo definitivo depende da base tributável informada pela Receita.</li>
+        <li><strong>Base da CSLL.</strong> A alíquota de 25% foi estimada sobre o lucro líquido. O cálculo definitivo depende da base tributável informada pela Receita.</li>
         <li><strong>Definição técnica da margem.</strong> O método de alocação do custo de captação aos títulos isentos precisa de regulamentação conjunta da Receita e do Banco Central.</li>
         <li><strong>Medição de adicionalidade.</strong> A linha de base de crédito por banco é a parte mais sensível do desenho e deve ser auditável.</li>
         <li><strong>Alternativa de compensação.</strong> Limitar a dedução de juros sobre capital próprio das instituições financeiras é uma opção de ampliação de base ainda não dimensionada.</li>
@@ -437,6 +464,15 @@ ol.refs a{word-break:break-word}
         <li id="r18"><span class="id">[18]</span><span>BNDES, credenciamento de máquinas e equipamentos (Código FINAME). <a href="https://www.bndes.gov.br/SiteBNDES/bndes/bndes_pt/Ferramentas_e_Normas/Credenciamento_de_Equipamentos/">BNDES</a></span></li>
         <li id="r19"><span class="id">[19]</span><span>EY, Série Reforma Tributária, edição 12 (LC 224/2025). <a href="https://www.ey.com/content/dam/ey-unified-site/ey-com/pt-br/campaigns/reforma-tributaria/documents/ey-serie-reforma-tributaria-edicao-12.pdf">EY (PDF)</a></span></li>
         <li id="r20"><span class="id">[20]</span><span>TCE-SE, artigo sobre a LC 224/2025 e os requisitos para novos benefícios. <a href="https://www.tce.se.gov.br/portalecojan/Artigos/Artigo%20-%20LC%20224-2025%20-%20Beneficios%20Tributarios,%20Financeiros%20e%20Crediticios.pdf">TCE-SE (PDF)</a></span></li>
+        <li id="r21"><span class="id">[21]</span><span>Ipea, nota técnica sobre a relação entre Tesouro e Banco Central após a Lei nº 13.820/2019. <a href="https://repositorio.ipea.gov.br/server/api/core/bitstreams/0ba04421-a1a8-45b7-8125-5c00deab7497/content">Ipea</a></span></li>
+        <li id="r22"><span class="id">[22]</span><span>Crédito direcionado e a analogia da meia-entrada, segundo o Banco Central. <a href="https://borainvestir.b3.com.br/noticias/mercado/entenda-a-relacao-meia-entrada-no-cinema-e-credito-direcionado-dita-por-campos-neto/">B3 Bora Investir</a></span></li>
+        <li id="r23"><span class="id">[23]</span><span>Modenesi e Passos, bancos públicos e potência da política monetária. <a href="https://www.ie.ufrj.br/images/IE/TDS/2021/TD_IE_008_2021_MODENESI_PASSOS.pdf">IE/UFRJ (PDF)</a></span></li>
+        <li id="r24"><span class="id">[24]</span><span>Ata do Copom: disciplina fiscal e taxa de juros neutra. <a href="https://acionista.com.br/economia-brasileira-o-fiscal-ainda-e-risco-ou-chave-para-novo-ciclo-sustentavel/">Acionista</a></span></li>
+        <li id="r25"><span class="id">[25]</span><span>Banco Central: parcela do crédito ligada à Selic e às taxas longas. <a href="https://bpmoney.com.br/?p=134340">BP Money</a></span></li>
+        <li id="r26"><span class="id">[26]</span><span>Decreto da meta contínua de inflação. <a href="https://www.poder360.com.br/economia/governo-publica-decreto-com-meta-continua-de-inflacao/">Poder360</a></span></li>
+        <li id="r27"><span class="id">[27]</span><span>IPCA-15 de outubro de 2026 e média dos núcleos. <a href="https://conteudos.xpi.com.br/?p=1575943">XP</a></span></li>
+        <li id="r28"><span class="id">[28]</span><span>BIS, Inflation dynamics and inflation expectations in Thailand. <a href="https://www.bis.org/publ/bppdf/bispap89y.pdf">BIS (PDF)</a></span></li>
+        <li id="r29"><span class="id">[29]</span><span>Coreia troca a meta de núcleo pela inflação cheia. <a href="https://www.centralbanking.com/central-banking/news/1431231/korea-changes-inflation-target-measure">Central Banking</a></span></li>
       </ol>
     </section>
   </article>
@@ -444,7 +480,7 @@ ol.refs a{word-break:break-word}
 
 <footer class="rodape">
   <div class="faixa">
-    <p>Plano Macro-Industrial de Crédito Direcionado. Whitepaper, versão 2, novembro de 2026. <a href="https://github.com/marluan/plano-macro-industrial">Repositório e histórico de versões</a>.</p>
+    <p>Plano Macro-Industrial de Crédito Direcionado. Whitepaper, versão 2.1, novembro de 2026. <a href="https://github.com/marluan/plano-macro-industrial">Repositório e histórico de versões</a>.</p>
     <p class="licenca"><a href="https://github.com/marluan">marluan</a> é o autor desta proposta. O conteúdo está sob a licença <a href="https://creativecommons.org/licenses/by/4.0/deed.pt-br" rel="license">Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" width="20" height="20"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" width="20" height="20">: qualquer pessoa pode copiar, adaptar e redistribuir, desde que mantenha o crédito ao autor, indique a licença e informe o que foi alterado.</p>
   </div>
 </footer>
